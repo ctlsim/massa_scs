@@ -1,0 +1,29 @@
+[package]
+name = "sc_scan_01"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.release]
+lto = true # longer link time but can reduce final lib size
+
+[dependencies]
+wasmparser = "0.201.0"
+wasm-bindgen = "0.2"
+serde = { version="1.0.97", features = ["derive"] }
+serde_json = "1.0.114"
+
+[dependencies.web-sys]
+version = "0.3.4"
+features = [
+    'Document',
+    'Element',
+    'HtmlElement',
+    'Node',
+    'Window',
+]
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3"
